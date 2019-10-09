@@ -46,4 +46,4 @@ Command line to create a gradle project.
 		BUILD SUCCESSFUL in 1m 17s
 		2 actionable tasks: 2 executed
 
-3>
+3> Now you can Import this project in eclipse as an existing gradle project and start working on that
