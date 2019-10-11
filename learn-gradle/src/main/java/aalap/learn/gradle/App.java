@@ -3,29 +3,16 @@
  */
 package aalap.learn.gradle;
 
-import java.io.File;
-
-import org.gradle.tooling.BuildLauncher;
-import org.gradle.tooling.GradleConnector;
-import org.gradle.tooling.ProjectConnection;
+import org.apache.log4j.Logger;
 
 public class App {
+	private static final Logger LOG = Logger.getLogger(App.class);
     public String getGreeting() {
         return "Hello world.";
     }
 
     public static void main(String[] args) {
-    	ProjectConnection projectConnection = GradleConnector.newConnector().forProjectDirectory(new File("C:\\Users\\adesai\\AALAP-Learning-example\\gradle\\learn-gradle")).connect();
-    	try {
-            BuildLauncher build = projectConnection.newBuild();
-            build.forTasks("build");
-            build.run();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-        	projectConnection.close();
-        }
-    	System.out.println("C:\\Users\\adesai\\AALAP-Learning-example\\gradle\\learn-gradle");
-        System.out.println(new App().getGreeting());
+    	LOG.info("C:\\Users\\adesai\\AALAP-Learning-example\\gradle\\learn-gradle");
+    	LOG.info(new App().getGreeting());
     }
 }

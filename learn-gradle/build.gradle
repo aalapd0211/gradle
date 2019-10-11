@@ -5,39 +5,22 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * User Manual available at https://docs.gradle.org/5.6.1/userguide/tutorial_java_projects.html
  */
- println name
- println "project.projectDir--->>>"+project.projectDir
- println "project.buildDir--->>>"+project.buildDir
 
- //println "project path-->>"+project.path
- def homePath = System.properties['user.home']
- println "homePath--->>>"+homePath
 apply plugin: 'java'
 repositories {
-	jcenter()
-	//mavenCentral()
+	mavenCentral()
 }
-configurations {
-    // configuration that holds jars to include in the jar
-    extraLibs
-}
+
 jar{ 
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 	manifest{
 		attributes 'Main-Class':'aalap.learn.gradle.App'
 	}
 }
 dependencies {	
-	extraLibs 'org.gradle:gradle-tooling-api:4.0-rc-2'
+	compile 'log4j:log4j:1.2.17'
 	testCompile 'junit:junit:4.12'
-	configurations.compile.extendsFrom(configurations.extraLibs)
 }
 
-jar {
-    from {
-            configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
-        }
-}
 
-test {
-    testLogging.showStandardStreams = true
-}
+
