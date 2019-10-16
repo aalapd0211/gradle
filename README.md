@@ -47,3 +47,13 @@ Command line to create a gradle project.
 		2 actionable tasks: 2 executed
 
 3> Now you can Import this project in eclipse as an existing gradle project and start working on that
+
+
+
+
+jaxrs-jerssey-gradle : This project han an information about making a sample web-service publisher using the gradle. THis will generate a war file which we need to deploy on the tomcat server. Once we deploy this on tomcat we can check the service by using end point ant get detault html data.
+					   Following is the URL to call the endpoin from browser or from the postman.
+					   
+jaxrs-jerssey-client-gradle : THis project is a sample client which called the publisher and get the data from publisher and show it using the client. We have used various methods to show various type of the data.
+
+		

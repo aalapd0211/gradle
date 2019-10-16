@@ -12,12 +12,14 @@ repositories {
 }
 
 jar{ 
+	//In our example we have a jar log4j. If we are not include that at the jar creation (Fat-jar) , it will throw an
+	//error at the run time. Folloqing code will include the
 	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 	manifest{
 		attributes 'Main-Class':'aalap.learn.gradle.App'
 	}
 }
-dependencies {	
+dependencies {
 	compile 'log4j:log4j:1.2.17'
 	testCompile 'junit:junit:4.12'
 }
